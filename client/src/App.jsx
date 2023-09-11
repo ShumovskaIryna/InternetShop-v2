@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TopComponent from './components/TopComponent/TopComponent';
 import Items from './components/Items/Items';
 // import FullProduct from './components/Items/FullProduct/FullProduct';
 import { useQuery, gql } from "@apollo/client"
 import Navbar from './components/Navbar';
+import Home from './components/Home';
 
 const GET_DATA = gql`
   query {
@@ -50,13 +51,14 @@ console.log({ error, loading, data })
   return (
     <div className="wrapper">
       <Navbar/>
-      <TopComponent
+      <Home/>
+      {/* <TopComponent
         allCategories={data?.categories}
         // changeCategory = {setCategory}
       />
       <Items
         items={data?.categories[0]?.products}
-      />
+      /> */}
       {/* <FullProduct
       /> */}
     </div>

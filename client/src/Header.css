@@ -16,8 +16,8 @@ body {
 }
 .logo {
   position: relative;
-  width: 41px;
-  height: 41px;
+  width: 135px;
+  height: 45px;
   left: 50%;
   top: calc(50% - 41px / 2 + 4.5px);
 }
