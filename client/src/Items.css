@@ -2,8 +2,8 @@ div .product-card {
   position: relative;
   width: 350px;
   height: 440px;
-  left: 90px;
-  top: 90px;
+  left: 5px;
+  top: 10px;
   display: inline-block;
   flex-direction: row;
   align-items: flex-start;

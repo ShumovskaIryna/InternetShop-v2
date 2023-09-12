@@ -6,14 +6,6 @@ body {
   background: #ffffff;
   transition: all ease 300ms;
 }
-
-.header {
-  position: relative;
-  width: 100vw;
-  height: 80px;
-  left: 0px;
-  top: 0px;
-}
 .logo {
   position: relative;
   width: 135px;
@@ -21,20 +13,14 @@ body {
   left: 50%;
   top: calc(50% - 41px / 2 + 4.5px);
 }
-.brand-logo {
-  position: relative;
-  width: 41px;
-  top: 0%;
-  bottom: 0%;
-}
 .categories {
   flex-direction: row;
   align-items: center;
   padding: 0px;
   display: inline-block;
-  position: absolute;
-  width: 234px;
-  height: 56px;
+  position: relative;
+  /* width: 234px;
+  height: 56px; */
   flex: none;
   order: 0;
   flex-grow: 0;
