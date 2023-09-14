@@ -41,7 +41,7 @@ const GET_DATA = gql`
 const {error, data, loading} = useQuery(GET_DATA)
 console.log({ error, loading, data })
 
-const [filterData, setFilter] = useState(data)
+const [filterData, setFilter] = useState(data?.categories[0]?.products)
 
 const filterProduct = (cat) => {
     const updatedList = data?.categories[0]?.products.filter((x)=>x.category === cat)
@@ -56,7 +56,7 @@ const ShowProducts = () => {
         <Categories allCategories={data?.categories}
         filterProduct={filterProduct}/>
         <div className="container">
-            {data?.categories[0]?.products.map((el) => (
+            {filterData?.map((el) => (
                 <Item
                 key={el.id}
                 item={el}
