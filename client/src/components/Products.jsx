@@ -3,80 +3,86 @@ import { useQuery, gql } from "@apollo/client"
 import Item from './Item';
 import Categories from "./Categories"
 
-const Products = () => {
-
 const GET_DATA = gql`
-  query {
-    categories {
+query myQuery($categoryInput: CategoryInput) {
+  category(input: $categoryInput) {
+    name,
+    products {
+      id,
       name,
-      products {
-        id,
+      inStock,
+      gallery,
+      description,
+      category,
+      attributes {
         name,
-        inStock,
-        gallery,
-        description,
-        category,
-        attributes {
-          name,
+        id,
+        type,
+        items{
           id,
-          type,
-          items{
-            id,
-            value,
-            displayValue
-          }
-        },
-        prices {
-          amount,
-          currency {
-            label,
-            symbol
-          }
-        },
-        brand
-      }
+          value,
+          displayValue
+        }
+      },
+      prices {
+        amount,
+        currency {
+          label,
+          symbol
+        }
+      },
+      brand
     }
   }
+}
 `
-const {error, data, loading} = useQuery(GET_DATA)
-console.log({ error, loading, data })
-
-const [filterData, setFilter] = useState(data?.categories[0]?.products)
-
-const filterProduct = (cat) => {
-    const updatedList = data?.categories[0]?.products.filter((x)=>x.category === cat)
-    setFilter(updatedList)
+const GET_CATEGORIES = gql`
+query myAwesomeQuery {
+    categories {
+    name,
+  }
 }
+`
 
-const Loading = () => {
-    return <>Loading...</>
-}
-const ShowProducts = () => {
+const Products = () => {
+
+  const [_, setCategoryInput] = useState('all')
+  const {error, data, loading, refetch: refetchProducts} = useQuery(GET_DATA);
+  const {error: errorCategories, data: dataCategories, loading: loadingCategories} = useQuery(GET_CATEGORIES);
+  
+  console.log('Data',{ error, loading, data, errorCategories, loadingCategories})
+
+  const Loading = () => {
+      return <>Loading...</>
+  }
+  const ShowProducts = () => {
     return <>
-        <Categories allCategories={data?.categories}
-        filterProduct={filterProduct}/>
-        <div className="container">
-            {filterData?.map((el) => (
-                <Item
-                key={el.id}
-                item={el}
-                />
-            ))}
-        </div>
+      <Categories allCategories={dataCategories?.categories}
+      setCategory={setCategoryInput}
+      refetchProducts={refetchProducts}
+      />
+      <div className="container">
+        {data?.category?.products.map((el) => (
+          <Item
+          key={el.id}
+          item={el}
+          />
+        ))}
+      </div>
     </>
-}
-console.log('filterData', filterData)
-    return (
-        <div>
-            <div className="container my-3 py-1">
-                <div className="row justify-content-center">
-                    <div className="col-12 mb-5">
-                        {data ? <ShowProducts/> : <Loading/> }
-                    </div>
-                </div>
-            </div>
+  }
+
+  return (
+    <div>
+      <div className="container my-3 py-1">
+        <div className="row justify-content-center">
+          <div className="col-12 mb-5">
+            {data ? <ShowProducts/> : <Loading/> }
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Products
