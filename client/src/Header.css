@@ -47,7 +47,7 @@ body {
   flex-grow: 0;
   margin: 0px 0px;
 
-  font-family: "Raleway";
+  font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -146,7 +146,7 @@ select {
 h1 {
   position: absolute;
   left: 101px;
-  font-family: "Raleway";
+  font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
   font-size: 42px;
@@ -191,13 +191,13 @@ h1 {
   font-size: 14px;
 }
 .empty {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   font-size: 18px;
   margin: 20px;
   color: #1d1f22;
 }
 .full {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   font-size: 14px;
   margin: 20px;
   color: #1d1f22;
@@ -215,7 +215,7 @@ h1 {
   transform: scale(1.3);
 }
 .summa {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   float: left;
   width: 100%;
   font-weight: 600;
@@ -223,13 +223,13 @@ h1 {
   margin-bottom: 20px;
 }
 .currencies {
-width: 40px;
-height: 20px;
-overflow: hidden;
+  width: 40px;
+  height: 20px;
+  overflow: hidden;
 }
 .currencies:active {
-width: 40px;
-height: auto;
-overflow: visible;
-margin-top: 75px;
+  width: 40px;
+  height: auto;
+  overflow: visible;
+  margin-top: 75px;
 }
