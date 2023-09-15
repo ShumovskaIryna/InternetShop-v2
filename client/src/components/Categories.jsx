@@ -7,7 +7,10 @@ function Categories(props) {
         <div
           className="element"
           key={index}
-          onClick={()=>props?.filterProduct(`${name}`)}
+          onClick={() => {
+            props?.setCategory(`${name}`);
+            props.refetchProducts( { categoryInput: {title: name}  });
+          }}
           >
           <label>{name}</label>
         </div>
