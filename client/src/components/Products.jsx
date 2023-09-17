@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
-import Item from './Item';
+import Product from './Product';
 import Categories from './Categories';
 
 const GET_DATA = gql`
@@ -68,7 +68,7 @@ const Products = () => {
         />
         <div className="container">
           {data?.category?.products.map((el) => (
-            <Item key={el.id} item={el} />
+            <Product key={el.id} product={el} />
           ))}
         </div>
       </>
