@@ -11,7 +11,7 @@ div .product-card {
   padding: 10px;
   margin: 5px;
   transition: box-shadow 500ms ease;
-  cursor:pointer;
+  cursor: pointer;
 }
 .product-card:hover {
   box-shadow: 4px 4px 10px 3px grey;
@@ -35,7 +35,7 @@ div .product-card {
   width: 320px;
   height: 325px;
   object-fit: contain;
-  cursor:pointer;
+  cursor: pointer;
 }
 .descrtiption {
   display: flex;

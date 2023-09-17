@@ -14,11 +14,13 @@ class Item extends Component {
           <div className="descrtiption">
             <p className="title">{this.props?.item.name}</p>
             <b className="price">
-              {this.props?.item.prices[0].amount }
+              {this.props?.item.prices[0].amount}
               {this.props?.item.prices[0].currency.symbol}
             </b>
           </div>
-          <div className="add-to-cart" onClick={() => this.props.onAdd(this.props.item)}>+</div>
+          <div className="add-to-cart" onClick={() => this.props.onAdd(this.props.item)}>
+            +
+          </div>
         </div>
       </div>
     );
