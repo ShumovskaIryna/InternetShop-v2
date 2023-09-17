@@ -45,7 +45,7 @@ const GET_CATEGORIES = gql`
 `;
 
 const Products = () => {
-  const [_, setCategoryInput] = useState('all');
+  const [, setCategoryInput] = useState('all');
   const { error, data, loading, refetch: refetchProducts } = useQuery(GET_DATA);
   const {
     error: errorCategories,
@@ -55,31 +55,28 @@ const Products = () => {
 
   console.log('Data', { error, loading, data, errorCategories, loadingCategories });
 
-  const Loading = () => {
-    return <>Loading...</>;
-  };
-  const ShowProducts = () => {
-    return (
-      <>
-        <Categories
-          allCategories={dataCategories?.categories}
-          setCategory={setCategoryInput}
-          refetchProducts={refetchProducts}
-        />
-        <div className="container">
-          {data?.category?.products.map((el) => (
-            <Product key={el.id} product={el} />
-          ))}
-        </div>
-      </>
-    );
-  };
-
   return (
     <div>
       <div className="container my-3 py-1">
         <div className="row justify-content-center">
-          <div className="col-12 mb-5">{data ? <ShowProducts /> : <Loading />}</div>
+          <div className="col-12 mb-5">
+            {data ? (
+              <>
+                <Categories
+                  allCategories={dataCategories?.categories}
+                  setCategory={setCategoryInput}
+                  refetchProducts={refetchProducts}
+                />
+                <div className="container">
+                  {data?.category?.products.map((el) => (
+                    <Product key={el.id} product={el} />
+                  ))}
+                </div>
+              </>
+            ) : (
+              <>Loading...</>
+            )}
+          </div>
         </div>
       </div>
     </div>
