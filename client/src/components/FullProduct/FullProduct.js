@@ -1,46 +1,15 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-
+import { useQuery } from '@apollo/client';
 import MiniGallery from './MiniGallery';
 import ValueAttributes from './ValueAttributes';
-
-const GET_PRODUCT_BY_ID = gql`
-  query myQuery($id: String!) {
-    product(id: $id) {
-      id
-      name
-      inStock
-      gallery
-      description
-      category
-      attributes {
-        name
-        id
-        type
-        items {
-          id
-          value
-          displayValue
-        }
-      }
-      prices {
-        amount
-        currency {
-          label
-          symbol
-        }
-      }
-      brand
-    }
-  }
-`;
+import { QUERIES } from '../../constants/costants';
 
 const FullProduct = (props) => {
   const {
     error: errorProduct,
     data: dataProduct,
     loading: loadingProduct,
-  } = useQuery(GET_PRODUCT_BY_ID, {
+  } = useQuery(QUERIES.GET_PRODUCT_BY_ID, {
     variables: {id: props.productId}
   });
   console.log(errorProduct)
@@ -50,10 +19,8 @@ const FullProduct = (props) => {
     :
       <div className="full-item">
         {' '}
-        {/* black background */}
         <div className="full-product-card">
           {' '}
-          {/* white div */}
           <div className="close" 
               onClick={() => {
                 props.toggleProductDetails(current => !current)
