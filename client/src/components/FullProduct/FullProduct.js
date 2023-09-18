@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import MiniGallery from './MiniGallery';
+import SomeErrorScreen from '../SomeErrorScreen'
 import ValueAttributes from './ValueAttributes';
 import { QUERIES } from '../../constants/costants';
 
@@ -12,9 +13,11 @@ const FullProduct = (props) => {
   } = useQuery(QUERIES.GET_PRODUCT_BY_ID, {
     variables: {id: props.productId}
   });
-  console.log(errorProduct)
+
   return (
     <> 
+    {errorProduct ? <SomeErrorScreen toggleProductDetails={props.toggleProductDetails}/> : 
+    <>
     {loadingProduct ? <div> Loading...</div>
     :
       <div className="full-item">
@@ -62,6 +65,8 @@ const FullProduct = (props) => {
         </div>
       </div>
     }
+    </>
+  }
     </>
   )
 }
