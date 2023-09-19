@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './Header.css';
 import App from './App';
-import './Items.css';
+import './Products.css';
 import './FullProduct.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
