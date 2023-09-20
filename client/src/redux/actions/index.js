@@ -1,13 +1,13 @@
 export const addItem = (product) => {
     return {
-        type : "ADDITEM",
+        type : "ADD_ITEM",
         payload : product
     }
 }
 
 export const deleteItem = (product) => {
     return {
-        type : "DELETEITEM",
+        type : "DELETE_ITEM",
         payload : product
     }
 }
