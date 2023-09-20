@@ -51,7 +51,7 @@ const FullProduct = (props) => {
               </b>
               <div
                 className="full-add-to-cart"
-                // onClick={() => this.props.onAdd(dataProduct.product)}
+                onClick={() => props.addProduct(dataProduct.product)}
                 title="Add to cart"
               >
                 <label className="cart-label">Add to cart</label>

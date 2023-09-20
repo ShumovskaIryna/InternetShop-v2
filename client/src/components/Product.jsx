@@ -39,6 +39,7 @@ const Product = (props) => {
           shouldShowProductDetails={shouldShowProductDetails}
           toggleProductDetails={toggleProductDetails}
           productId={props?.product.id}
+          addProduct={addProduct}
         />
       ) : (
         <></>
