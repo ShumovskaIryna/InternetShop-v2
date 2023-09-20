@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import FullProduct from './FullProduct/FullProduct';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/actions/index';
 
 const Product = (props) => {
   const [shouldShowProductDetails, toggleProductDetails] = useState(false);
+  const dispatch = useDispatch();
+
+  const addProduct = (product) => {
+    dispatch(addItem(product));
+  };
   return (
     <>
       <div className="product-card">
@@ -22,9 +29,9 @@ const Product = (props) => {
               {props?.product.prices[0].currency.symbol}
             </b>
           </div>
-          {/* <div className="add-to-cart" onClick={() => props.onAdd(props.)}>
+          <div className="add-to-cart" onClick={() => addProduct(props?.product)}>
             +
-          </div> */}
+          </div>
         </div>
       </div>
       {shouldShowProductDetails ? (

@@ -1,20 +1,36 @@
-import React, { Component } from 'react';
-import { FaTrash } from 'react-icons/fa';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import CartItem from './CartItem';
 
-export class Cart extends Component {
-  render() {
-    return (
-      <div className="item">
-        <img src={this.props.item.gallery[0]} className="gallery" alt="product" />
-        <p className="title">{this.props.item.name}</p>
-        <b className="price">
-          {this.props.item.prices[0].amount}
-          {this.props.item.prices[0].currency.symbol}
-        </b>
-        <FaTrash className="delete" onClick={() => this.props.onDelete(this.props.item.id)} />
-      </div>
-    );
-  }
-}
+const Cart = () => {
+  const state = useSelector((state) => state.handleCart);
+  return (
+    <>
+      {state.length ? (
+        <>
+          {state.map((el) => (
+            <CartItem key={el.id} item={el} />
+          ))}
+          <div className="container">
+            <div className="row">
+              <Link to="/checkout" className="btn btn-outline-primary mb-5 w-25 mx-auto">
+                Proceed To checkout
+              </Link>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="px-5 my-5 rounded-3 py-3">
+          <div className="container py-2">
+            <div className="row">
+              <h3 className="title">Your Cart is Empty</h3>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default Cart;
