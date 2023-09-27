@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
 
-  var total = 0;
+  let total = 0;
   const itemList = (item) => {
     total = Math.round((total + item.prices[0].amount) * 100) / 100;
     return (

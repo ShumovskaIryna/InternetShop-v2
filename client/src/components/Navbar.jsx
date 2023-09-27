@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import getTotalQty from '../helpers/NavbarHelper';
 
 const Navbar = () => {
   const state = useSelector((state) => state.handleCart);
@@ -59,7 +60,7 @@ const Navbar = () => {
                 </li>
                 <li className="btn btn-outline-dark ms-2">
                   <Link className="nav-link" to="/cart">
-                    <i className="fa fa-shopping-cart me-1"></i>Cart ({state.length})
+                    <i className="fa fa-shopping-cart me-1"></i>Cart({getTotalQty(state)})
                   </Link>
                 </li>
               </ul>
