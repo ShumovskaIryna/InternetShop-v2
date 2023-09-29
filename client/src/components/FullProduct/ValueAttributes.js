@@ -3,11 +3,10 @@ import Value from './Value';
 
 function ValueAttributes(props) {
   const { atributes } = props;
-  console.log(props, 4);
   return (
-    <div className="attributes">
+    <div className="values">
       {atributes?.map((el, id) => (
-        <Value key={id} value={el.displayValue} />
+        <Value key={id} value={el.value} />
       ))}
     </div>
   );
