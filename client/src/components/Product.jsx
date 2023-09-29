@@ -29,7 +29,7 @@ const Product = (props) => {
               {props?.product.prices[0].currency.symbol}
             </b>
           </div>
-          <div className="add-to-cart" onClick={() => addProduct(props?.product)}>
+          <div role="add_button" className="add-to-cart" onClick={() => addProduct(props?.product)}>
             +
           </div>
         </div>
