@@ -51,5 +51,6 @@ describe('Product', () => {
     fireEvent.click(screen.getByRole('add_button'));
     expect(dispatch).toHaveBeenCalledTimes(1);
     expect(mockedAddProduct).toHaveBeenCalledWith(product);
+    expect(screen.getByText('PlayStation 5')).toBeInTheDocument();
   });
 });
