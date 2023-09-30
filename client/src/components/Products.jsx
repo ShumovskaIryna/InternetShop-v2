@@ -27,7 +27,7 @@ const Products = () => {
                   setCategory={setCategoryInput}
                   refetchProducts={refetchProducts}
                 />
-                <div className="container">
+                <div className="products-container">
                   {data?.category?.products.map((el) => (
                     <Product key={el.id} product={el} />
                   ))}
