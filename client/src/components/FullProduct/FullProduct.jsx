@@ -57,13 +57,15 @@ const FullProduct = (props) => {
                         {dataProduct.product.prices[0].amount}
                         {dataProduct.product.prices[0].currency.symbol}
                       </b>
-                      <div
-                        className="full_add_button"
-                        onClick={() => props.addProduct(dataProduct.product)}
-                        title="Add to cart"
-                      >
-                        <label className="add-label">Add to cart</label>
-                      </div>
+                    </div>
+                    <div
+                      className="full_add_button"
+                      onClick={() => props.addProduct(dataProduct.product)}
+                      title="Add to cart"
+                    >
+                      <label className="add-label">
+                        Add to cart <i className="fa fa-shopping-cart me-1"></i>
+                      </label>
                     </div>
                   </div>
                 </div>

@@ -10,7 +10,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-white py-2 shadow-sm">
         <div className="container">
           <Link className="navbar-brand fw-bold fs-4" to="/">
-            <img src="RedPanda.png" className="logo" />
+            <img src="RedPanda.png" className="logo" alt="RedPandaLogo" />
           </Link>
           <button
             className="navbar-toggler"

@@ -12,13 +12,74 @@
   z-index: 9999;
   overflow: auto;
 }
+.name, 
+.brand {
+  position: relative;
+  font-style: normal;
+  align-items: center;
+  line-height: 26px;
+}
+.brand {
+  font-weight: 800;
+  font-size: 26px;
+  color: #1d1f22;
+  margin-top: 10px;
+}
+.name {
+  font-weight: 600;
+  font-size: 24px;
+  color: #333436;
+}
+.attribut {
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  align-items: center;
+  margin-top: 5px;
+  color: #1d1f22;
+}
+.values {
+  font-family: 'Roboto Condensed';
+  text-align: justify;
+  text-transform: uppercase;
+}
+.size {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 15px 20px;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  width: auto;
+  height: 25px;
+  line-height: 10px;
+  border: 1px solid #667690;
+  font-size: 14px;
+  transition: box-shadow 500ms ease;
+}
+.size:hover {
+  background: #1d1f22;
+  color: white;
+}
+.size:active {
+  background: #1d1f22;
+  color: white;
+  box-shadow: 1px 1px 5px 1px grey;
+}
+.price {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+}
 .content {
-  width: 100%;
+  width: 90%;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 159.96%;
-  margin-top: -5px;
+  margin-top: 5px;
   color: #1d1f22;
   z-index: 20;
 }
@@ -116,83 +177,22 @@
   width: 30%;
   z-index: 100;
 }
-.name, 
-.brand {
-  position: relative;
-  font-style: normal;
-  align-items: center;
-}
-.brand {
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 26px;
-  color: #1d1f22;
-}
-.name {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 24px;
-  color: #333436;
-}
-.attribut {
-  position: relative;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 18px;
-  align-items: center;
-  margin-top: 10px;
-  color: #1d1f22;
-}
-.values {
-  font-family: 'Roboto Condensed';
-  text-align: justify;
-  margin-top: 10px;
-  text-transform: uppercase;
-}
-.size {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  text-align: center;
-  box-sizing: border-box;
-  width: auto;
-  height: 35px;
-  line-height: 14px;
-  border: 1px solid #1d1f22;
-  font-size: 14px;
-  transition: box-shadow 500ms ease;
-}
-.size:hover {
-  background: #1d1f22;
-  color: white;
-}
-.size:active {
-  background: #1d1f22;
-  color: white;
-  box-shadow: 1px 1px 5px 1px grey;
-}
-.price {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 18px;
-}
 /* ADD button */
 .full_add_button {
-  display: inline-block;
-  margin: 25px 0px 10px 0px;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 100%;
+  margin: 20px auto;
+  cursor: pointer;
+  width: 90%;
   height: 50px;
   line-height: 50px;
-
   background-color: #5ece7b;
   transition: transform 500ms ease;
 }
 .full_add_button:hover {
-  transform: scale(1.1) translateX(5px);
+  transform: scale(1.1);
 }
 .add-label {
   font-style: normal;
