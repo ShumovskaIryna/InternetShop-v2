@@ -9,14 +9,16 @@ const Cart = () => {
     <>
       {state.length ? (
         <>
-          {state.map((el) => (
-            <CartItem key={el.id} item={el} />
-          ))}
-          <div className="container">
-            <div className="row">
-              <Link to="/checkout" className="btn btn-outline-primary mb-5 w-25 mx-auto">
-                Proceed To checkout
-              </Link>
+          <div className="white_cart">
+            {state.map((el) => (
+              <CartItem key={el.id} item={el} />
+            ))}
+            <div className="container">
+              <div className="row">
+                <Link to="/checkout" className="btn btn-outline-primary mt-2 cheackout_btn">
+                  Proceed to checkout
+                </Link>
+              </div>
             </div>
           </div>
         </>

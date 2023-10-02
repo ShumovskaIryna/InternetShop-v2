@@ -1,39 +1,39 @@
-div .product-card {
-  position: relative;
-  width: 350px;
-  height: 440px;
-  left: 5px;
-  top: 10px;
+.products-container{
   display: inline-block;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 10px;
-  margin: 5px;
-  transition: box-shadow 500ms ease;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 0px 20px 10px 20px;
+  margin: 0px auto;
+}
+.product-card {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 30%;
   cursor: pointer;
+  height: 420px;
+  padding: 10px;
+  margin: 10px;
+  transition: box-shadow 500ms ease;
 }
 .product-card:hover {
   box-shadow: 4px 4px 10px 3px grey;
 }
-
 .good {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding: 10px;
-
-  width: 300px;
+  width: fit-content;
   height: 390px;
   background: #ffffff;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 .gallery {
-  width: 320px;
-  height: 325px;
+  width: 90%;
+  height: 350px;
   object-fit: contain;
   cursor: pointer;
 }
@@ -42,10 +42,7 @@ div .product-card {
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-
-  flex: none;
   align-self: stretch;
-  flex-grow: 0;
 }
 .title {
   font-family: 'Raleway';
@@ -53,7 +50,6 @@ div .product-card {
   font-size: 18px;
   display: flex;
   align-items: flex-start;
-
   color: #8d8f9a;
 }
 .price {
@@ -65,7 +61,6 @@ div .product-card {
   display: flex;
   flex-direction: column;
 }
-
 .add-to-cart {
   position: absolute;
   right: 20px;
@@ -75,13 +70,41 @@ div .product-card {
   height: 40px;
   text-align: center;
   line-height: 40px;
+  font-size: 24px;
   color: #ffffff;
   border-radius: 50%;
   cursor: pointer;
   font-weight: 700;
-
   transition: transform 500ms ease;
 }
 .add-to-cart:hover {
   transform: scale(1.5) translateY(-5px);
+}
+@media (max-width: 992px) {
+  .product-card {
+    width: 45%;
+    margin: 5px;
+  }
+}
+@media (max-width:767px) {
+  .products-container{
+    padding: 0px 0px;
+  }
+  .product-card {
+    width: 48%;
+    padding: 5px;
+    margin: 5px;
+  }
+}
+@media (max-width:530px) {
+  .product-card {
+    width: 70%;
+    margin: 2px;
+  }
+}
+@media (max-width:395px) {
+  .product-card {
+    width: 90%;
+    margin-left: 15px;
+  }
 }
