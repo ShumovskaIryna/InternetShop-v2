@@ -35,7 +35,11 @@ const CartItem = (props) => {
           <b className="price">{props.item.qty}</b>
         </div>
         <div className="col-md-1 mt-5">
-          <FaTrash className="delete" onClick={() => handleClose(props.item)} />
+          <FaTrash
+            role="delete_button"
+            className="delete"
+            onClick={() => handleClose(props.item)}
+          />
         </div>
       </div>
     </div>
