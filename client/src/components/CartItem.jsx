@@ -11,37 +11,19 @@ const CartItem = (props) => {
   };
 
   return (
-    <div className="item container py-2" key={props.item.id}>
-      <div className="row justify-content-center">
-        <div className="col-md-2">
-          <img
-            className="gallery"
-            src={props.item.gallery[0]}
-            alt={props.item.name}
-            height="200px"
-            width="180px"
-          />
-        </div>
-        <div className="col-md-2 mt-4">
-          <p className="title">{props.item.name}</p>
-        </div>
-        <div className="col-md-2 mt-4">
-          <b className="price">
-            {props.item.prices[0].amount}
-            {props.item.prices[0].currency.symbol}
-          </b>
-        </div>
-        <div className="col-md-1 mt-4">
-          <b className="price">{props.item.qty}</b>
-        </div>
-        <div className="col-md-1 mt-5">
-          <FaTrash
-            role="delete_button"
-            className="delete"
-            onClick={() => handleClose(props.item)}
-          />
-        </div>
-      </div>
+    <div className="item" key={props.item.id}>
+      <img className="gallery_cart" src={props.item.gallery[0]} alt={props.item.name} />
+      <p className="title">{props.item.name}</p>
+      <b className="price">
+        {props.item.prices[0].amount}
+        {props.item.prices[0].currency.symbol}
+      </b>
+      <b className="price">
+        <span>-</span>
+        {props.item.qty}
+        <span>+</span>
+      </b>
+      <FaTrash role="delete_button" className="delete" onClick={() => handleClose(props.item)} />
     </div>
   );
 };
