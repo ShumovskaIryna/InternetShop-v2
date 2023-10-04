@@ -1,12 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addName } from '../redux/actions/index';
 import { Link } from 'react-router-dom';
 import getTotalQty from '../helpers/NavbarHelper';
 import getTotalPrice from '../helpers/CheckoutHelper';
 
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState('');
 
+  const handleChange = (e) => {
+    dispatch(addName(e.target.value));
+    setInputValue(e.target.value);
+  };
   const itemList = (item) => {
     return (
       <li className="list-group-item d-flex justify-content-between lh-sm">
@@ -42,86 +49,44 @@ const Checkout = () => {
                 </strong>
               </li>
             </ul>
-
-            <form className="card p-2">
-              <div className="input-group">
-                <input type="text" className="form-control" placeholder="Promo code" />
-                <button type="submit" className="btn btn-secondary">
-                  Redeem
-                </button>
-              </div>
-            </form>
           </div>
           <div className="col-md-7 col-lg-8">
             <h4 className="mb-3">Billing information</h4>
-            <form className="needs-validation" novalidate="">
-              <div className="row g-3">
-                <div className="col-sm-6">
-                  <label htmlFor="firstName" className="form-label">
-                    First name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="firstName"
-                    placeholder=""
-                    value=""
-                    required=""
-                  />
-                  <div className="invalid-feedback">Valid first name is required.</div>
-                </div>
+            <div className="row g-3">
+              <div className="col-sm-6">
+                <label htmlFor="firstName" className="form-label">
+                  First name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="firstName"
+                  placeholder=""
+                  value={inputValue}
+                  onChange={handleChange}
+                  required=""
+                />
+                <div className="invalid-feedback">Valid first name is required.</div>
+              </div>
 
-                <div className="col-sm-6">
-                  <label htmlFor="lastName" className="form-label">
-                    Last name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="lastName"
-                    placeholder=""
-                    value=""
-                    required=""
-                  />
-                  <div className="invalid-feedback">Valid last name is required.</div>
-                </div>
-
-                <div className="col-12">
-                  <label htmlFor="username" className="form-label">
-                    Username
-                  </label>
-                  <div className="input-group has-validation">
-                    <span className="input-group-text">@</span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="username"
-                      placeholder="Username"
-                      required=""
-                    />
-                    <div className="invalid-feedback">Your username is required.</div>
-                  </div>
-                </div>
-
-                <div className="col-12">
-                  <label htmlFor="email" className="form-label">
-                    Email <span className="text-muted">(Optional)</span>
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    placeholder="you@example.com"
-                  />
-                  <div className="invalid-feedback">
-                    Please enter a valid email address htmlFor shipping updates.
-                  </div>
+              <div className="col-12">
+                <label htmlFor="email" className="form-label">
+                  Email <span className="text-muted">(Optional)</span>
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="you@example.com"
+                />
+                <div className="invalid-feedback">
+                  Please enter a valid email address htmlFor shipping updates.
                 </div>
               </div>
-              <Link to="/submit" className="w-100 btn btn-primary btn-lg mt-5" type="submit">
-                Continue to checkout
-              </Link>
-            </form>
+            </div>
+            <Link to="/submit" className="w-100 btn btn-primary btn-lg mt-5" type="submit">
+              Continue to checkout
+            </Link>
           </div>
         </div>
       </div>

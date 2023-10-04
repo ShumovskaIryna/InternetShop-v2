@@ -1,4 +1,4 @@
-import {ADD_ITEM, DELETE_ITEM, DELETE_ALL_ITEMS} from '../../constants/actions'
+import {ADD_ITEM, DELETE_ITEM, DELETE_ALL_ITEMS, ADD_NAME} from '../../constants/actions'
 
 export const addItem = (product) => {
     return {
@@ -20,3 +20,5 @@ export const deleteAllItems = (product) => {
         payload : product
     }
 }
+
+export const addName = (value) => ({type: ADD_NAME, payload: value})

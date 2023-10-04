@@ -122,7 +122,7 @@
   flex-direction: row;
   width: 100%;
   height: fit-content;
-  justify-content: start;
+  justify-content:flex-start;
   text-align: start;
   align-items: stretch;
 }

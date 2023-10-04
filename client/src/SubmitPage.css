@@ -1,5 +1,6 @@
 .hero_thanks {
 min-height: 100vh;
+min-width: 100vw;
 z-index: -10;
 }
 .wrapper_thanks {
@@ -188,7 +189,7 @@ z-index: 10;
 font-size: 30px;
 font-weight: 900;
 line-height: 35px;
-width: 450px;
+width: 330px;
 }
 .text_thanks p {
 font-size: 18px;

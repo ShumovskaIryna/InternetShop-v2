@@ -1,17 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const SubmitPage = () => {
+  const state = useSelector((state) => state.handleName);
   return (
     <>
       <div className="hero_thanks">
-        <div class="wrapper_thanks">
-          <div class="thanks_screen">
-            <img class="background" src="/assets/vector.png" alt="background" />
-            <img class="back-white" src="/assets/white1.png" alt="background" />
-            <div class="container_thanks">
-              <img class="red_panda" src="/assets/Red_Panda.png" alt="RedPanda" />
-              <div class="text_thanks">
-                <h5>Thanks, [name].</h5>
+        <div className="wrapper_thanks">
+          <div className="thanks_screen">
+            <img className="background" src="/assets/vector.png" alt="background" />
+            <img className="back-white" src="/assets/white1.png" alt="background" />
+            <div className="container_thanks">
+              <img className="red_panda" src="/assets/Red_Panda.png" alt="RedPanda" />
+              <div className="text_thanks">
+                <h5>Thanks, {state.value || 'unknown user'}!</h5>
                 <p>
                   I just wanted to drop you a quick note and let you know that I received your
                   recent payment.
