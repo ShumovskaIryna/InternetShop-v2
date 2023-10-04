@@ -1,15 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import getTotalQty from '../helpers/NavbarHelper';
+import getTotalPrice from '../helpers/CheckoutHelper';
 
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
 
   let total = 0;
   const itemList = (item) => {
-    total = Math.round((total + item.prices[0].amount) * 100) / 100;
+    total = Math.round((total + item.prices[0].amount * item.qty) * 100) / 100;
     return (
       <li className="list-group-item d-flex justify-content-between lh-sm">
         <div>
+          <span className="qtyItem">{item.qty} x</span>
           <h6 className="my-0">{item.name}</h6>
         </div>
         <span className="text-muted">
@@ -27,15 +30,15 @@ const Checkout = () => {
           <div className="col-md-5 col-lg-4 order-md-last">
             <h4 className="d-flex justify-content-between align-items-center mb-3">
               <span className="text-primary">Your cart</span>
-              <span className="badge bg-primary rounded-pill">{state.length}</span>
+              <span className="badge bg-primary rounded-pill">{getTotalQty(state)}</span>
             </h4>
             <ul className="list-group mb-3">
               {state.map(itemList)}
 
               <li className="list-group-item d-flex justify-content-between">
                 <span>Total (USD)</span>
-                <strong>
-                  {total}
+                <strong className="qtyItem">
+                  {getTotalPrice(state)}
                   {state[0]?.prices[0].currency.symbol}
                 </strong>
               </li>
