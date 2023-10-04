@@ -6,9 +6,7 @@ import getTotalPrice from '../helpers/CheckoutHelper';
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
 
-  let total = 0;
   const itemList = (item) => {
-    total = Math.round((total + item.prices[0].amount * item.qty) * 100) / 100;
     return (
       <li className="list-group-item d-flex justify-content-between lh-sm">
         <div>
