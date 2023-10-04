@@ -9,6 +9,7 @@ import './Products.css';
 import './FullProduct.css';
 import './Home.css';
 import './Cart.css';
+import './SubmitPage.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
