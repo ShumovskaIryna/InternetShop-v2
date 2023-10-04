@@ -3,9 +3,9 @@ import React from 'react';
 const SomeErrorScreen = (props) => {
   return (
     <>
-      <div className="full-item">
+      <div className="black">
         {' '}
-        <div className="full-product-card">
+        <div className="white">
           {' '}
           <div
             className="close"
