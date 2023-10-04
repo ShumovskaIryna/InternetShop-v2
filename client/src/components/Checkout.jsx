@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import getTotalQty from '../helpers/NavbarHelper';
 import getTotalPrice from '../helpers/CheckoutHelper';
 
@@ -117,9 +118,9 @@ const Checkout = () => {
                   </div>
                 </div>
               </div>
-              <button className="w-100 btn btn-primary btn-lg mt-5" type="submit">
+              <Link to="/submit" className="w-100 btn btn-primary btn-lg mt-5" type="submit">
                 Continue to checkout
-              </button>
+              </Link>
             </form>
           </div>
         </div>
