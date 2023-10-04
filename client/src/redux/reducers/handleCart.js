@@ -1,4 +1,4 @@
-import {ADD_ITEM, DELETE_ITEM} from '../../constants/actions'
+import {ADD_ITEM, DELETE_ITEM, DELETE_ALL_ITEMS} from '../../constants/actions'
 const cart = [];
 
 const handleCart = (state = cart, action) => {
@@ -25,8 +25,12 @@ const handleCart = (state = cart, action) => {
       } else {
         return state.map((x) => (x.id === product.id ? { ...x, qty: x.qty - 1 } : x));
       }
-    default:
-      return state;
+
+      case DELETE_ALL_ITEMS:
+        const exist_some = state.find((x) => x.id === product.id);
+          return state.filter((x) => x.id !== exist_some.id);
+      default:
+        return state;
   }
 };
 

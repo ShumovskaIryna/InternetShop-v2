@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Products from './components/Products';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import SubmitPage from './components/SubmitPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/products" element={<Products />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/submit" element={<SubmitPage />} />
       </Routes>
     </div>
   );
